@@ -1,0 +1,24 @@
+<Page
+    x:Class="adsfmlk.Skierowania"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:adsfmlk"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#1d212a">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Lista elementów po lewej stronie -->
+        <ListView x:Name="ItemsListView" Grid.Column="0" SelectionChanged="ItemsListView_SelectionChanged"
+                  DisplayMemberPath="Name"/>
+
+        <!-- Szczegóły wybranego elementu po prawej stronie -->
+        <ContentControl x:Name="DetailsContentControl" Grid.Column="1" Background="LightGray"/>
+    </Grid>
+</Page>

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "adsfmlk (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "adsfmlk (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
