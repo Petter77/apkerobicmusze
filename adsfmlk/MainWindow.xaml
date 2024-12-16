@@ -6,13 +6,17 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
     <Grid>
-        <muxc:NavigationView SelectionChanged="NavigationView_SelectionChanged">
+        <muxc:NavigationView SelectionChanged="NavigationView_SelectionChanged" Background="LightSkyBlue">
+            <muxc:NavigationView.Resources>
+                <SolidColorBrush x:Key="NavigationViewItemForeground" Color="black"/>
+            </muxc:NavigationView.Resources>
+            
             <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem Content="Home" Tag="HomePage" Icon="Home"/>
-                <muxc:NavigationViewItem Content="Wpisy" Tag="Wpisy" Icon="List"/>
-                <muxc:NavigationViewItem Content="Recepty" Tag="Recepty" Icon="Page"/>
-                <muxc:NavigationViewItem Content="Skierowania" Tag="Skierowania" Icon="TouchPointer"/>
-                <muxc:NavigationViewItem Content="Wyniki" Tag="Wyniki" />
+                <muxc:NavigationViewItem Content="Home"         Tag="HomePage"      Icon="Placeholder" FontSize="28"/>
+                <muxc:NavigationViewItem Content="Wpisy"        Tag="Wpisy"         Icon="Placeholder" FontSize="28"/>
+                <muxc:NavigationViewItem Content="Recepty"      Tag="Recepty"       Icon="Placeholder" FontSize="28"/>
+                <muxc:NavigationViewItem Content="Skierowania"  Tag="Skierowania"   Icon="Placeholder" FontSize="28"/>
+                <muxc:NavigationViewItem Content="Wyniki"       Tag="Wyniki"        Icon="Placeholder" FontSize="28"/>
             </muxc:NavigationView.MenuItems>
             <Frame x:Name="contentFrame" />
         </muxc:NavigationView>

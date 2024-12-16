@@ -6,7 +6,7 @@ namespace adsfmlk
 {
     public sealed partial class Skierowania : Page
     {
-        public List<Item> Items { get; set; }
+        public List<Skierowanie> Items { get; set; }
 
         public Skierowania()
         {
@@ -16,12 +16,11 @@ namespace adsfmlk
 
         private void LoadData()
         {
-            // Przyk³adowe dane
-            Items = new List<Item>
+            Items = new List<Skierowanie>
             {
-                new Item { Id = 1, Name = "Element 1", Details = "Szczegó³y dla Element 1" },
-                new Item { Id = 2, Name = "Element 2", Details = "Szczegó³y dla Element 2" },
-                new Item { Id = 3, Name = "Element 3", Details = "Szczegó³y dla Element 3" }
+                new Skierowanie { Id_ = 1, Text_ = "Skierowanie na oddzia³ kardiologiczny", Date_ = "2021-01-01" },
+                new Skierowanie { Id_ = 2, Text_ = "Skierowanie na oddzia³ neurologiczny", Date_ = "2021-02-01" },
+                new Skierowanie { Id_ = 3, Text_ = "Skierowanie na oddzia³ ortopedyczny", Date_ = "2021-03-01" }
             };
 
             ItemsListView.ItemsSource = Items;
@@ -29,14 +28,28 @@ namespace adsfmlk
 
         private void ItemsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ItemsListView.SelectedItem is Item selectedItem)
+            if (ItemsListView.SelectedItem is Skierowanie selectedItem)
             {
-                DetailsContentControl.Content = new TextBlock
+                var detailsPanel = new StackPanel
                 {
-                    Text = selectedItem.Details,
-                    FontSize = 24,
                     Margin = new Thickness(10)
                 };
+
+           
+                detailsPanel.Children.Add(new TextBlock
+                {
+                    Text = $"{selectedItem.Text_}",
+                    FontSize = 20
+                });
+
+                detailsPanel.Children.Add(new TextBlock
+                {
+                    Text = $"{selectedItem.Date_}",
+                    FontSize = 20,
+                    FontStyle = Windows.UI.Text.FontStyle.Italic
+                });
+
+                DetailsContentControl.Content = detailsPanel;
             }
         }
     }

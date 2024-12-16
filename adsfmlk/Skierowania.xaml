@@ -14,11 +14,17 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Lista elementów po lewej stronie -->
-        <ListView x:Name="ItemsListView" Grid.Column="0" SelectionChanged="ItemsListView_SelectionChanged"
-                  DisplayMemberPath="Name"/>
+        <ListView x:Name="ItemsListView" Grid.Column="0" SelectionChanged="ItemsListView_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Skierowanie">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Text_}" FontWeight="Bold"/>
+                        <TextBlock Text="{x:Bind Date_}" FontStyle="Italic"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        <!-- Szczegóły wybranego elementu po prawej stronie -->
         <ContentControl x:Name="DetailsContentControl" Grid.Column="1" Background="LightGray"/>
     </Grid>
 </Page>
